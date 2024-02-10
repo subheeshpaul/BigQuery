@@ -1,8 +1,8 @@
-### BigQuery
+# BigQuery
 
-##This file contains Week 3 home work from data-engineering-zoomcamp
+## This file contains Week 3 home work from data-engineering-zoomcamp
 
-# Creating an external table
+### Creating an external table
 Creating external table referring to gcs path
 `
 CREATE OR REPLACE EXTERNAL TABLE `taxi_rides_ny.external_green_tripdata`
@@ -17,7 +17,7 @@ OPTIONS (
 -(Select count(1) from taxi_rides_ny.external_green_tripdata )
 -840,402
 
-# Creating  a non partitioned table from external tabl
+#### Creating  a non partitioned table from external tabl
 `
 CREATE OR REPLACE TABLE taxi_rides_ny.green_tripdata AS
 SELECT *,TIMESTAMP_MICROS(CAST(lpep_pickup_datetime / 1000 AS INT64)) as lpep_pickup_datet  FROM taxi_rides_ny.external_green_tripdata;
